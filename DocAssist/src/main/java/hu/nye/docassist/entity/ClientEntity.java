@@ -38,7 +38,7 @@ public class ClientEntity {
     private String lastName;
     @PositiveOrZero
     private Integer age;
-    @Pattern(regexp = "^(\\+\\d{1,3}[- ]?)?\\d{10}$", message = "Invalid phone number")
+    @Pattern(regexp = "^(\\+\\d{1,2}[- ]?)?\\d{7}$", message = "Invalid phone number")
     private String phonenumber;
     @NotEmpty
     private String disease;

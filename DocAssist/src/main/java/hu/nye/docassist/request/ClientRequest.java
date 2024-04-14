@@ -29,7 +29,7 @@ public class ClientRequest {
     private String disease;
     @Email
     private String email;
-    @Pattern(regexp = "^(\\+\\d{1,3}[- ]?)?\\d{10}$", message = "Invalid phone number")
+    @Pattern(regexp = "^(\\+\\d{1,2}[- ]?)?\\d{10}$", message = "Invalid phone number")
     private String phoneNumber;
 
     @JsonFormat(pattern = "yyyy.MM.dd")

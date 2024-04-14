@@ -28,6 +28,7 @@ public class ClientController {
         logger.info("Received request: {}", request);
         try {
             ClientEntity savedClient = clientService.saveClient(request);
+            logger.info("Successfully saved user: {}", savedClient);
             return ResponseEntity.ok(savedClient);
         } catch (ValidationException e) {
             logger.error("Validation error: {}", e.getMessage());
@@ -35,9 +36,28 @@ public class ClientController {
         }
     }
 
-    @GetMapping("/{id}")
-    public ClientEntity getClient(@PathVariable("id") Long id) throws ClientNotFoundException {
-        return clientService.getClientById(id);
+    @GetMapping("/users/{id}")
+    public ResponseEntity<ClientEntity> getClient(@PathVariable("id") Long id) {
+        try {
+            ClientEntity client = clientService.getClientById(id);
+            logger.info("Successfully got user: {}", client);
+            return ResponseEntity.ok(client);
+        } catch (ClientNotFoundException e) {
+            logger.error("Validation error: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
+    @PutMapping("/users/{id}")
+    public ResponseEntity<ClientEntity> updateUser(@PathVariable("id") Long id, @RequestBody ClientRequest request) {
+        try {
+            ClientEntity updatedClient = clientService.updateClient(id, request);
+            logger.info("Successfully updated user: {}", updatedClient);
+            return ResponseEntity.ok(updatedClient);
+        } catch (ClientNotFoundException e) {
+            logger.error("Validation error: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 
     @ExceptionHandler(ClientNotFoundException.class)
@@ -47,8 +67,15 @@ public class ClientController {
     }
 
     @DeleteMapping("/users/{id}")
-    public void deleteClient(@PathVariable("id") Long id) {
-        clientService.deleteClientById(id);
+    public ResponseEntity<?> deleteClient(@PathVariable("id") Long id) {
+        try {
+            clientService.deleteClientById(id);
+            logger.info("Successfully deleted user with id: {}", id);
+            return ResponseEntity.ok().build();
+        } catch (ClientNotFoundException e) {
+            logger.error("User not found error: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
 
     @GetMapping("/users/age/{age}")

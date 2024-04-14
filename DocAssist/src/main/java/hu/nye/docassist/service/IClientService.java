@@ -14,7 +14,7 @@ public interface IClientService {
 
     ClientEntity updateClient(Long id, ClientRequest clientRequest) throws ClientNotFoundException;
 
-    void deleteClientById(Long id);
+    void deleteClientById(Long id) throws ClientNotFoundException;
 
     List<ClientEntity> findAllByAge(int age);
 }

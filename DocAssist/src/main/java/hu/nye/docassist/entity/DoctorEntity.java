@@ -19,7 +19,7 @@ public class DoctorEntity {
     private String firstName;
     @NotEmpty
     private String lastName;
-    @Pattern(regexp = "^(\\+\\d{1,3}[- ]?)?\\d{10}$", message = "Invalid phone number")
+    @Pattern(regexp = "^(\\+\\d{1,2}[- ]?)?\\d{7}$", message = "Invalid phone number")
     private String phonenumber;
 
     // Constructors, getters and setters

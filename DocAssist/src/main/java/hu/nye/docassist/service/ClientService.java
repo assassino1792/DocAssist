@@ -36,13 +36,24 @@ public class ClientService implements IClientService {
 
     @Override
     public ClientEntity updateClient(Long id, ClientRequest clientRequest) throws ClientNotFoundException {
-        ClientEntity clientEntity = clientRepository.findById(id).orElseThrow(() -> new ClientNotFoundException("Client not found with id: " + id));
-        // update clientEntity fields
+        ClientEntity clientEntity = clientRepository.findById(id)
+                .orElseThrow(() -> new ClientNotFoundException("Client not found with id: " + id));
+
+        clientEntity.setFirstName(clientRequest.getFirstName());
+        clientEntity.setLastName(clientRequest.getLastName());
+        clientEntity.setAge(clientRequest.getAge());
+        clientEntity.setEmail(clientRequest.getEmail());
+        clientEntity.setPhonenumber(clientRequest.getPhoneNumber());
+        clientEntity.setDisease(clientRequest.getDisease());
+
         return clientRepository.save(clientEntity);
     }
 
     @Override
-    public void deleteClientById(Long id) {
+    public void deleteClientById(Long id) throws ClientNotFoundException {
+        if (!clientRepository.existsById(id)) {
+            throw new ClientNotFoundException("Client not found with id: " + id);
+        }
         clientRepository.deleteById(id);
     }
 
