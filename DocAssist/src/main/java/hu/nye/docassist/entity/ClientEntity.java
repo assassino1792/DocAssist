@@ -4,12 +4,11 @@ import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,6 +24,7 @@ import org.slf4j.LoggerFactory;
 @Setter
 @Builder
 @Entity
+@Table(name = "Clients")
 public class ClientEntity {
     private static final Logger logger = LoggerFactory.getLogger(ClientEntity.class);
 
@@ -38,13 +38,12 @@ public class ClientEntity {
     private String lastName;
     @PositiveOrZero
     private Integer age;
-    @NotEmpty
-    private String doctorsName;
+    @Pattern(regexp = "^(\\+\\d{1,3}[- ]?)?\\d{10}$", message = "Invalid phone number")
+    private String phonenumber;
     @NotEmpty
     private String disease;
-
-    @JsonFormat(pattern = "yyyy.MM.dd")
-    private LocalDate registrationDate;
+    @Email
+    private String email;
 
 
 
@@ -53,7 +52,6 @@ public class ClientEntity {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.doctorsName = doctorsName;
         this.disease = disease;
         logger.info("ClientEntity created: {} {}", firstName, lastName, age, doctorsName, disease);
     }
@@ -91,14 +89,6 @@ public class ClientEntity {
         this.age = age;
     }
 
-    public String getDoctorsName() {
-        return doctorsName;
-    }
-
-    public void setDoctorsName(String doctorsName) {
-        this.doctorsName = doctorsName;
-    }
-
     public String getDisease() {
         return disease;
     }
@@ -106,4 +96,16 @@ public class ClientEntity {
     public void setDisease(String disease) {
         this.disease = disease;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+
+    public String getEmail() {
+        return email;
+    }
+
+
 }

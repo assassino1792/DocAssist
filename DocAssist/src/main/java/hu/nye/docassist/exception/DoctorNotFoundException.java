@@ -1,4 +1,4 @@
 package hu.nye.docassist.exception;
 
-public class DoctorNotFoundException {
+public class DoctorNotFoundException extends Exception {
 }
