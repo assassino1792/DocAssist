@@ -1,4 +1,0 @@
-# Logolás konfigurációja
-logging.level.root=WARN
-logging.level.hu.nye.docassist=INFO
-logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - %logger{35} - %level - %msg%n
