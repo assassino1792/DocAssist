@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClientService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">DocAssist</a> &gt; <a href="index.source.html" class="el_package">hu.nye.docassist.service</a> &gt; <span class="el_source">ClientService.java</span></div><h1>ClientService.java</h1><pre class="source lang-java linenums">package hu.nye.docassist.service;
+import java.util.List;
+
+import hu.nye.docassist.entity.ClientEntity;
+import hu.nye.docassist.repository.ClientRepository;
+import hu.nye.docassist.request.ClientRequest;
+import hu.nye.docassist.exception.ClientNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.time.LocalDate;
+
+@Service
+<span class="fc" id="L13">public class ClientService implements IClientService {</span>
+
+    @Autowired
+    private ClientRepository clientRepository;
+
+    @Override
+    public ClientEntity saveClient(ClientRequest clientRequest) {
+<span class="fc" id="L20">        ClientEntity clientEntity = new ClientEntity();</span>
+
+<span class="fc" id="L22">        clientEntity.setFirstName(clientRequest.getFirstName());</span>
+<span class="fc" id="L23">        clientEntity.setLastName(clientRequest.getLastName());</span>
+<span class="fc" id="L24">        clientEntity.setAge(clientRequest.getAge());</span>
+<span class="fc" id="L25">        clientEntity.setEmail(clientRequest.getEmail());</span>
+<span class="fc" id="L26">        clientEntity.setPhonenumber(clientRequest.getPhoneNumber());</span>
+<span class="fc" id="L27">        clientEntity.setDisease(clientRequest.getDisease());</span>
+<span class="fc" id="L28">        clientEntity.setRegistrationDate(clientRequest.getRegistrationDate());</span>
+
+<span class="fc" id="L30">        return clientRepository.save(clientEntity);</span>
+    }
+
+    @Override
+    public ClientEntity getClientById(Long id) throws ClientNotFoundException {
+<span class="fc" id="L35">        return clientRepository.findById(id).orElseThrow(() -&gt; new ClientNotFoundException(&quot;Client not found with id: &quot; + id));</span>
+    }
+
+    @Override
+    public ClientEntity updateClient(Long id, ClientRequest clientRequest) throws ClientNotFoundException {
+<span class="nc" id="L40">        ClientEntity clientEntity = clientRepository.findById(id)</span>
+<span class="nc" id="L41">                .orElseThrow(() -&gt; new ClientNotFoundException(&quot;Client not found with id: &quot; + id));</span>
+
+<span class="nc" id="L43">        clientEntity.setFirstName(clientRequest.getFirstName());</span>
+<span class="nc" id="L44">        clientEntity.setLastName(clientRequest.getLastName());</span>
+<span class="nc" id="L45">        clientEntity.setAge(clientRequest.getAge());</span>
+<span class="nc" id="L46">        clientEntity.setEmail(clientRequest.getEmail());</span>
+<span class="nc" id="L47">        clientEntity.setPhonenumber(clientRequest.getPhoneNumber());</span>
+<span class="nc" id="L48">        clientEntity.setDisease(clientRequest.getDisease());</span>
+<span class="nc" id="L49">        clientEntity.setRegistrationDate(clientRequest.getRegistrationDate());</span>
+
+<span class="nc" id="L51">        return clientRepository.save(clientEntity);</span>
+    }
+
+    @Override
+    public void deleteClientById(Long id) throws ClientNotFoundException {
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (!clientRepository.existsById(id)) {</span>
+<span class="nc" id="L57">            throw new ClientNotFoundException(&quot;Client not found with id: &quot; + id);</span>
+        }
+<span class="nc" id="L59">        clientRepository.deleteById(id);</span>
+<span class="nc" id="L60">    }</span>
+
+    @Override
+    public List&lt;ClientEntity&gt; findAllByAge(int age) {
+<span class="nc" id="L64">        return clientRepository.findAllByAge(age);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

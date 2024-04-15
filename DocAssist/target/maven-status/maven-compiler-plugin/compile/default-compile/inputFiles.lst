@@ -1,7 +1,7 @@
 C:\Coding\GitRepository\DocAssist\DocAssist\src\main\java\hu\nye\docassist\exception\ClientNotFoundException.java
 C:\Coding\GitRepository\DocAssist\DocAssist\src\main\java\hu\nye\docassist\controller\ClientController.java
 C:\Coding\GitRepository\DocAssist\DocAssist\src\main\java\hu\nye\docassist\repository\ClientRepository.java
-C:\Coding\GitRepository\DocAssist\DocAssist\src\main\java\hu\nye\docassist\model\client.java
+C:\Coding\GitRepository\DocAssist\DocAssist\src\main\java\hu\nye\docassist\model\Client.java
 C:\Coding\GitRepository\DocAssist\DocAssist\src\main\java\hu\nye\docassist\exception\GlobalExceptionHandler.java
 C:\Coding\GitRepository\DocAssist\DocAssist\src\main\java\hu\nye\docassist\request\ClientRequest.java
 C:\Coding\GitRepository\DocAssist\DocAssist\src\main\java\hu\nye\docassist\controller\ExceptionHandlerController.java

@@ -1,0 +1,13 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+DocAssist,hu.nye.docassist.configuration,ClientServiceConfiguration,3,0,0,0,1,0,1,0,1,0
+DocAssist,hu.nye.docassist.service,ClientService,70,56,2,0,15,11,5,4,4,4
+DocAssist,hu.nye.docassist.exception,GlobalExceptionHandler,66,0,2,0,15,0,7,0,6,0
+DocAssist,hu.nye.docassist.exception,ClientNotFoundException,0,4,0,0,0,2,0,1,0,1
+DocAssist,hu.nye.docassist.model,Client,3,0,0,0,1,0,1,0,1,0
+DocAssist,hu.nye.docassist.request,ClientRequest,35,45,0,0,3,8,9,8,9,8
+DocAssist,hu.nye.docassist.request,ClientRequest.ClientRequestBuilder,72,0,0,0,1,0,10,0,10,0
+DocAssist,hu.nye.docassist.controller,ClientController,110,0,0,0,29,0,8,0,8,0
+DocAssist,hu.nye.docassist.controller,ExceptionHandlerController,4,0,0,0,2,0,2,0,2,0
+DocAssist,hu.nye.docassist,Main,8,0,0,0,3,0,2,0,2,0
+DocAssist,hu.nye.docassist.entity,ClientEntity,66,68,0,0,16,16,9,12,9,12
+DocAssist,hu.nye.docassist.entity,ClientEntity.ClientEntityBuilder,81,0,0,0,1,0,11,0,11,0

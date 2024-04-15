@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClientController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">DocAssist</a> &gt; <a href="index.source.html" class="el_package">hu.nye.docassist.controller</a> &gt; <span class="el_source">ClientController.java</span></div><h1>ClientController.java</h1><pre class="source lang-java linenums">package hu.nye.docassist.controller;
+
+import hu.nye.docassist.entity.ClientEntity;
+import hu.nye.docassist.exception.ClientNotFoundException;
+import hu.nye.docassist.request.ClientRequest;
+import hu.nye.docassist.service.IClientService;
+import jakarta.validation.Valid;
+import jakarta.validation.ValidationException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDate;
+
+import java.util.List;
+@RestController
+<span class="nc" id="L20">public class ClientController {</span>
+
+<span class="nc" id="L22">    private static final Logger logger = LoggerFactory.getLogger(ClientController.class);</span>
+    @Autowired
+    private IClientService clientService;
+
+    @PostMapping(&quot;/users&quot;)
+    public ResponseEntity&lt;ClientEntity&gt; saveUser(@RequestBody ClientRequest request) {
+<span class="nc" id="L28">        logger.info(&quot;Received request: {}&quot;, request);</span>
+        try {
+<span class="nc" id="L30">            ClientEntity savedClient = clientService.saveClient(request);</span>
+<span class="nc" id="L31">            logger.info(&quot;Successfully saved user: {}&quot;, savedClient);</span>
+<span class="nc" id="L32">            return ResponseEntity.ok(savedClient);</span>
+<span class="nc" id="L33">        } catch (ValidationException e) {</span>
+<span class="nc" id="L34">            logger.error(&quot;Validation error: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L35">            return ResponseEntity.badRequest().body(null);</span>
+        }
+    }
+
+    @GetMapping(&quot;/users/{id}&quot;)
+    public ResponseEntity&lt;ClientEntity&gt; getClient(@PathVariable(&quot;id&quot;) Long id) {
+        try {
+<span class="nc" id="L42">            ClientEntity client = clientService.getClientById(id);</span>
+<span class="nc" id="L43">            logger.info(&quot;Successfully got user: {}&quot;, client);</span>
+<span class="nc" id="L44">            return ResponseEntity.ok(client);</span>
+<span class="nc" id="L45">        } catch (ClientNotFoundException e) {</span>
+<span class="nc" id="L46">            logger.error(&quot;Validation error: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L47">            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);</span>
+        }
+    }
+
+    @PutMapping(&quot;/users/{id}&quot;)
+    public ResponseEntity&lt;ClientEntity&gt; updateUser(@PathVariable(&quot;id&quot;) Long id, @RequestBody ClientRequest request) {
+        try {
+<span class="nc" id="L54">            ClientEntity updatedClient = clientService.updateClient(id, request);</span>
+<span class="nc" id="L55">            logger.info(&quot;Successfully updated user: {}&quot;, updatedClient);</span>
+<span class="nc" id="L56">            return ResponseEntity.ok(updatedClient);</span>
+<span class="nc" id="L57">        } catch (ClientNotFoundException e) {</span>
+<span class="nc" id="L58">            logger.error(&quot;Validation error: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L59">            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();</span>
+        }
+    }
+
+    @ExceptionHandler(ClientNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String handleClientNotFound(ClientNotFoundException e) {
+<span class="nc" id="L66">        return e.getMessage();</span>
+    }
+
+    @DeleteMapping(&quot;/users/{id}&quot;)
+    public ResponseEntity&lt;?&gt; deleteClient(@PathVariable(&quot;id&quot;) Long id) {
+        try {
+<span class="nc" id="L72">            clientService.deleteClientById(id);</span>
+<span class="nc" id="L73">            logger.info(&quot;Successfully deleted user with id: {}&quot;, id);</span>
+<span class="nc" id="L74">            return ResponseEntity.ok().build();</span>
+<span class="nc" id="L75">        } catch (ClientNotFoundException e) {</span>
+<span class="nc" id="L76">            logger.error(&quot;User not found error: {}&quot;, e.getMessage());</span>
+<span class="nc" id="L77">            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());</span>
+        }
+    }
+
+    @GetMapping(&quot;/users/age/{age}&quot;)
+    public List&lt;ClientEntity&gt; getAllUserByAge(@PathVariable(&quot;age&quot;) int age) {
+<span class="nc" id="L83">        return clientService.findAllByAge(age);</span>
+    }
+
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
