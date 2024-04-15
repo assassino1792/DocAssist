@@ -7,9 +7,8 @@ import hu.nye.docassist.request.ClientRequest;
 import hu.nye.docassist.exception.ClientNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import lombok.SneakyThrows;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDate;
+
 @Service
 public class ClientService implements IClientService {
 
@@ -26,9 +25,11 @@ public class ClientService implements IClientService {
         clientEntity.setEmail(clientRequest.getEmail());
         clientEntity.setPhonenumber(clientRequest.getPhoneNumber());
         clientEntity.setDisease(clientRequest.getDisease());
-       // clientEntity.setRegistrationDate(clientRequest.getRegistrationDate());
+        clientEntity.setRegistrationDate(clientRequest.getRegistrationDate());
+
         return clientRepository.save(clientEntity);
     }
+
     @Override
     public ClientEntity getClientById(Long id) throws ClientNotFoundException {
         return clientRepository.findById(id).orElseThrow(() -> new ClientNotFoundException("Client not found with id: " + id));
@@ -45,6 +46,7 @@ public class ClientService implements IClientService {
         clientEntity.setEmail(clientRequest.getEmail());
         clientEntity.setPhonenumber(clientRequest.getPhoneNumber());
         clientEntity.setDisease(clientRequest.getDisease());
+        clientEntity.setRegistrationDate(clientRequest.getRegistrationDate());
 
         return clientRepository.save(clientEntity);
     }
@@ -61,8 +63,4 @@ public class ClientService implements IClientService {
     public List<ClientEntity> findAllByAge(int age) {
         return clientRepository.findAllByAge(age);
     }
-
-
 }
-
-

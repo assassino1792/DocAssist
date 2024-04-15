@@ -18,6 +18,7 @@ import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -44,7 +45,9 @@ public class ClientEntity {
     private String disease;
     @Email
     private String email;
-
+    @Column
+    @JsonFormat(pattern = "yyyy.MM.dd")
+    private LocalDate registrationDate;
 
 
     // konstruktor

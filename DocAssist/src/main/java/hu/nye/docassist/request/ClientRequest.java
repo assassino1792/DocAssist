@@ -24,8 +24,6 @@ public class ClientRequest {
     @PositiveOrZero
     private Integer age;
     @NotEmpty
-    private String doctorsName;
-    @NotEmpty
     private String disease;
     @Email
     private String email;
