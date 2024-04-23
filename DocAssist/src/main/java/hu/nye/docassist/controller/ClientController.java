@@ -4,34 +4,41 @@ import hu.nye.docassist.entity.ClientEntity;
 import hu.nye.docassist.exception.ClientNotFoundException;
 import hu.nye.docassist.request.ClientRequest;
 import hu.nye.docassist.service.IClientService;
-import jakarta.validation.Valid;
-import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.fasterxml.jackson.annotation.JsonFormat;
+
+import jakarta.validation.Valid;
+import jakarta.validation.ValidationException;
+
 import java.time.LocalDate;
+import java.util.List;
+
 
 import java.util.List;
 @RestController
 public class ClientController {
 
+
+
     private static final Logger logger = LoggerFactory.getLogger(ClientController.class);
     @Autowired
     private IClientService clientService;
 
+    // Kezeli a kliens adatok API-n keresztül történő mentését
     @PostMapping("/users")
     public ResponseEntity<ClientEntity> saveUser(@RequestBody ClientRequest request) {
-        logger.info("Received request: {}", request);
+        logger.info("Received API request to save user: {}", request);
         try {
             ClientEntity savedClient = clientService.saveClient(request);
-            logger.info("Successfully saved user: {}", savedClient);
+            logger.info("Successfully saved user via API: {}", savedClient);
             return ResponseEntity.ok(savedClient);
         } catch (ValidationException e) {
-            logger.error("Validation error: {}", e.getMessage());
+            logger.error("Validation error during API save: {}", e.getMessage());
             return ResponseEntity.badRequest().body(null);
         }
     }
@@ -82,6 +89,12 @@ public class ClientController {
     public List<ClientEntity> getAllUserByAge(@PathVariable("age") int age) {
         return clientService.findAllByAge(age);
     }
+
+
+
+
+
+
 
 }
 
