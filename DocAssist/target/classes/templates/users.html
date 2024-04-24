@@ -2,19 +2,94 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Users</title>
+    <!-- Bootstrap CSS hozzáadása -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Registration</title>
 
 </head>
-<body>
-<h1>User Registration</h1>
-<form action="#" th:action="@{/users}" th:object="${client}" method="post">
-    <p>First Name: <input type="text" th:field="*{firstName}" /></p>
-    <p>Last Name: <input type="text" th:field="*{lastName}" /></p>
-    <p>Age: <input type="number" th:field="*{age}" /></p>
-    <p>Email: <input type="email" th:field="*{email}" /></p>
-    <p>Phone Number: <input type="text" th:field="*{phonenumber}" /></p>
-    <p>Disease: <input type="text" th:field="*{disease}" /></p>
-    <p><input type="submit" value="Submit" /></p>
-</form>
+<body class="bg-light">
+<div class="container mt-5">
+    <h1 class="mb-3">Patient Registration</h1>
+    <form action="#" th:action="@{/clients/new}" th:object="${client}" method="post" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name:</label>
+            <input type="text" class="form-control" th:field="*{firstName}" id="firstName" required>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name:</label>
+            <input type="text" class="form-control" th:field="*{lastName}" id="lastName" required>
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label">Age:</label>
+            <input type="number" class="form-control" th:field="*{age}" id="age" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" th:field="*{email}" id="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="phonenumber" class="form-label">Phone Number:</label>
+            <input type="text" class="form-control" th:field="*{phonenumber}" id="phonenumber" required>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('phonenumber')}" th:errors="*{phonenumber}">
+                Invalid Phone Number
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="disease" class="form-label">Problem:</label>
+            <input type="text" class="form-control" th:field="*{disease}" id="disease" required>
+        </div>
+        <div class="mb-3">
+            <label for="registrationDate" class="form-label">Registration Date:</label>
+            <input type="date" class="form-control" th:field="*{registrationDate}" id="registrationDate" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registrationModalLabel">Registration Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="font-size: 50px; text-align: center;">
+                Your registration number is: <span id="registrationNumber"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => response.json())
+              .then(registrationId => {
+                  document.getElementById('registrationNumber').textContent = registrationId;
+                  var myModal = new bootstrap.Modal(document.getElementById('registrationModal'));
+                  myModal.show();
+              })
+              .catch(error => console.error('Error:', error));
+        });
+    });
+</script>
+
+
 </body>
 </html>

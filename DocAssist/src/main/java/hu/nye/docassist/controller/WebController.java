@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;
-
 @Controller
 public class WebController {
 
@@ -22,21 +22,20 @@ public class WebController {
     @Autowired
     private IClientService clientService;
 
-    @GetMapping("/showusers")
+    @GetMapping("/clients")
     public String showForm(Model model) {
         model.addAttribute("client", new ClientEntity());
-        return "users"; // Az űrlap megjelenítése a users.html használatával
+        return "users"; // Az űrlap megjelenítése
     }
 
-    @PostMapping("/users/new")
-    public String submitForm(@ModelAttribute ClientEntity clientEntity) {
-        ClientRequest request = createClientRequestFromEntity(clientEntity);
-        clientService.saveClient(request);
+    @PostMapping("/clients/new")
+    public ResponseEntity<Long> submitForm(@ModelAttribute ClientEntity clientEntity) {
+        ClientEntity savedClient = clientService.saveClient(convertToClientRequest(clientEntity));
         logger.info("Successfully saved user via form: {}", clientEntity);
-        return "redirect:/users";
+        return ResponseEntity.ok(savedClient.getId()); // Visszaadja az ID-t JSON formátumban
     }
 
-    private ClientRequest createClientRequestFromEntity(ClientEntity clientEntity) {
+    private ClientRequest convertToClientRequest(ClientEntity clientEntity) {
         return ClientRequest.builder()
                 .firstName(clientEntity.getFirstName())
                 .lastName(clientEntity.getLastName())
@@ -48,3 +47,5 @@ public class WebController {
                 .build();
     }
 }
+
+

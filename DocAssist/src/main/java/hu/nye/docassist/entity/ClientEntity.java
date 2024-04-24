@@ -39,7 +39,16 @@ public class ClientEntity {
     private String lastName;
     @PositiveOrZero
     private Integer age;
-    @Pattern(regexp = "^(\\+\\d{1,2}[- ]?)?\\d{7}$", message = "Invalid phone number")
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public LocalDate getRegistrationDate() {
+        return registrationDate;
+    }
+
+    @Pattern(regexp = "^\\+(36)(30|1|70|20)\\d{7}$", message = "Invalid phone number")
     private String phonenumber;
     @NotEmpty
     private String disease;
@@ -110,5 +119,11 @@ public class ClientEntity {
         return email;
     }
 
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
 
+    public void setRegistrationDate(LocalDate registrationDate) {
+        this.registrationDate = registrationDate;
+    }
 }

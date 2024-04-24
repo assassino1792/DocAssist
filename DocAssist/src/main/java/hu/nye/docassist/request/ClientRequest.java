@@ -27,9 +27,38 @@ public class ClientRequest {
     private String disease;
     @Email
     private String email;
-    @Pattern(regexp = "^(\\+\\d{1,2}[- ]?)?\\d{10}$", message = "Invalid phone number")
+    @Pattern(regexp = "^\\+(36)(30|1|70|20)\\d{7}$", message = "Invalid phone number")
     private String phoneNumber;
 
     @JsonFormat(pattern = "yyyy.MM.dd")
     private LocalDate registrationDate;
+
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public String getDisease() {
+        return disease;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public LocalDate getRegistrationDate() {
+        return registrationDate;
+    }
 }
