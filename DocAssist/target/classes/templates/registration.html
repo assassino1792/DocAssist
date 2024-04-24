@@ -20,7 +20,7 @@
 </nav>
 <div class="container mt-5">
     <h1 class="mb-3">Patient Registration</h1>
-    <form action="#" th:action="@{/clients/new}" th:object="${client}" method="post" class="needs-validation" novalidate>
+    <form action="#" th:action="@{/registration/new}" th:object="${client}" method="post" class="needs-validation" novalidate>
         <div class="mb-3">
             <label for="firstName" class="form-label">First Name:</label>
             <input type="text" class="form-control" th:field="*{firstName}" id="firstName" required>
@@ -39,14 +39,11 @@
         </div>
         <div class="mb-3">
             <label for="phonenumber" class="form-label">Phone Number:</label>
-            <input type="text" class="form-control" th:field="*{phonenumber}" id="phonenumber" required>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('phonenumber')}" th:errors="*{phonenumber}">
-                Invalid Phone Number
-            </div>
-        </div>
+            <input type="text" class="form-control" th:field="*{phonenumber}" id="phonenumber" required pattern="^\+(36)(30|70|20)\d{9}$">
+         </div>
         <div class="mb-3">
-            <label for="disease" class="form-label">Problem:</label>
-            <input type="text" class="form-control" th:field="*{disease}" id="disease" required>
+            <label for="problem" class="form-label">Problem:</label>
+            <input type="text" class="form-control" th:field="*{problem}" id="problem" required>
         </div>
         <div class="mb-3">
             <label for="registrationDate" class="form-label">Registration Date:</label>
@@ -59,7 +56,7 @@
 
 <!-- Gomb az adatok listázásához -->
 <div class="container mt-3">
-    <a href="/clients/list" class="btn btn-info">View All Registrations</a>
+    <a href="/registration/list" class="btn btn-info">View All Registrations</a>
 </div>
 
 
@@ -75,7 +72,7 @@
                 Your registration number is: <span id="registrationNumber"></span>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

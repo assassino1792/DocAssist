@@ -21,7 +21,7 @@
     </div>
 </nav>
 <div class="container mt-5">
-    <a href="/clients" class="btn btn-secondary mb-3">
+    <a href="/registration" class="btn btn-secondary mb-3">
         <i class="bi bi-arrow-left"></i> Back to Registration
     </a>
     <h1>List of Registered Patients</h1>
@@ -47,11 +47,11 @@
             <td th:text="${client.age}"></td>
             <td th:text="${client.email}"></td>
             <td th:text="${client.phonenumber}"></td>
-            <td th:text="${client.disease}"></td>
+            <td th:text="${client.problem}"></td>
             <td th:text="${client.registrationDate}"></td>
             <td>
-                <a th:href="@{/clients/edit/{id}(id=${client.id})}" class="btn btn-primary">Update</a>
-                <a th:href="@{/clients/delete/{id}(id=${client.id})}" class="btn btn-danger">Delete</a>
+                <a th:href="@{/registration/edit/{id}(id=${client.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/registration/delete/{id}(id=${client.id})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>

@@ -7,7 +7,6 @@ import hu.nye.docassist.request.ClientRequest;
 import hu.nye.docassist.exception.ClientNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.time.LocalDate;
 
 @Service
 public class ClientService implements IClientService {
@@ -24,7 +23,7 @@ public class ClientService implements IClientService {
         clientEntity.setAge(clientRequest.getAge());
         clientEntity.setEmail(clientRequest.getEmail());
         clientEntity.setPhonenumber(clientRequest.getPhoneNumber());
-        clientEntity.setDisease(clientRequest.getDisease());
+        clientEntity.setProblem(clientRequest.getProblem());
         clientEntity.setRegistrationDate(clientRequest.getRegistrationDate());
 
         return clientRepository.save(clientEntity);
@@ -45,7 +44,7 @@ public class ClientService implements IClientService {
         clientEntity.setAge(clientRequest.getAge());
         clientEntity.setEmail(clientRequest.getEmail());
         clientEntity.setPhonenumber(clientRequest.getPhoneNumber());
-        clientEntity.setDisease(clientRequest.getDisease());
+        clientEntity.setProblem(clientRequest.getProblem());
         clientEntity.setRegistrationDate(clientRequest.getRegistrationDate());
 
         return clientRepository.save(clientEntity);

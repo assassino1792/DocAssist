@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.*;
+import jakarta.validation.constraints.Email;
 
 import java.time.LocalDate;
 
@@ -23,12 +24,13 @@ public class ClientRequest {
     private String lastName;
     @PositiveOrZero
     private Integer age;
-    @NotEmpty
-    private String disease;
+    //@Pattern(regexp = "^\\+(36)(30|1|70|20)\\d{7}$", message = "Invalid phone number")
+    private String phoneNumber;
     @Email
     private String email;
-    @Pattern(regexp = "^\\+(36)(30|1|70|20)\\d{7}$", message = "Invalid phone number")
-    private String phoneNumber;
+
+    @NotEmpty
+    private String problem;
 
     @JsonFormat(pattern = "yyyy.MM.dd")
     private LocalDate registrationDate;
@@ -46,8 +48,8 @@ public class ClientRequest {
         return age;
     }
 
-    public String getDisease() {
-        return disease;
+    public String getProblem() {
+        return problem;
     }
 
     public String getEmail() {

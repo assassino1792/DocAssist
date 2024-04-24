@@ -31,7 +31,15 @@ public class ClientServiceTest {
     @Test
     public void testSaveClient() {
         ClientRequest request = new ClientRequest("John", "Doe", 30, "Cough", "john.doe@example.com", "+36-2345678", LocalDate.now());
-        ClientEntity expectedClient = new ClientEntity(Doe, "John", "30", "john.doe@example.com", "+36-2345678", LocalDate.now());
+        ClientEntity expectedClient = ClientEntity.builder()
+                .firstName("John")
+                .lastName("Doe")
+                .age(30)
+                .problem("Cough")
+                .email("john.doe@example.com")
+                .phonenumber("+36-2345678")
+                .registrationDate(LocalDate.now())
+                .build();
 
         when(clientRepository.save(any(ClientEntity.class))).thenReturn(expectedClient);
 
@@ -46,7 +54,16 @@ public class ClientServiceTest {
     @Test
     public void testGetClientById() throws ClientNotFoundException {
         Long clientId = 1L;
-        ClientEntity client = new ClientEntity(1L, "John", "Doe", 30, "Cough", "john.doe@example.com", "+36-2345678", LocalDate.now());
+        ClientEntity client = ClientEntity.builder()
+                .id(1L)
+                .firstName("John")
+                .lastName("Doe")
+                .age(30)
+                .problem("Cough")
+                .email("john.doe@example.com")
+                .phonenumber("+36-2345678")
+                .registrationDate(LocalDate.now())
+                .build();
 
         when(clientRepository.findById(clientId)).thenReturn(java.util.Optional.of(client));
 
