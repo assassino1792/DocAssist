@@ -63,4 +63,13 @@ public class ClientService implements IClientService {
     public List<ClientEntity> findAllByAge(int age) {
         return clientRepository.findAllByAge(age);
     }
+
+    // Implementing findAll method to return all clients
+    @Override
+    public List<ClientEntity> findAll() {
+        return clientRepository.findAll();
+    }
+
 }
+
+

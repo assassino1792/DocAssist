@@ -17,4 +17,10 @@ public interface IClientService {
     void deleteClientById(Long id) throws ClientNotFoundException;
 
     List<ClientEntity> findAllByAge(int age);
+
+    /**
+     * Retrieves all clients.
+     * @return a list of all ClientEntity
+     */
+    List<ClientEntity> findAll();
 }

@@ -44,8 +44,15 @@
             <input type="date" class="form-control" th:field="*{registrationDate}" id="registrationDate" required>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+
     </form>
 </div>
+
+<!-- Gomb az adatok listázásához -->
+<div class="container mt-3">
+    <a href="/clients/list" class="btn btn-info">View All Registrations</a>
+</div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">

@@ -1,15 +1,17 @@
-#Mon Apr 15 21:16:20 CEST 2024
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\model\\Client.java=1713208542519
-configuration*?=677019684B101B701E33FCBB362632C545BABDA0
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\request\\ClientRequest.java=1713198315656
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\controller\\ExceptionHandlerController.java=1713095684986
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\resources\\application.properties=1713086678943
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\repository\\ClientRepository.java=1713096901390
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\Main.java=1713077195058
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\service\\IClientService.java=1713112351919
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\entity\\ClientEntity.java=1713198419689
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\configuration\\ClientServiceConfiguration.java=1713077195058
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\service\\ClientService.java=1713198167386
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\exception\\ClientNotFoundException.java=1713097717926
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\exception\\GlobalExceptionHandler.java=1713103590844
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\controller\\ClientController.java=1713112177151
+#Wed Apr 24 10:51:08 CEST 2024
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\resources\\application.properties=1713942355552
+configuration*?=BF3F5E464D4FE3A99B9D359D51C2D605B3D5C51E
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\request\\ClientRequest.java=1713945127014
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\Main.java=1713942355536
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\entity\\ClientEntity.java=1713945127005
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\exception\\GlobalExceptionHandler.java=1713942355536
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\service\\IClientService.java=1713942355552
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\configuration\\ClientServiceConfiguration.java=1713942355536
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\controller\\FaviconController.java=1713942355536
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\repository\\ClientRepository.java=1713942355552
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\service\\ClientService.java=1713942355552
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\controller\\ExceptionHandlerController.java=1713942355536
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\exception\\ClientNotFoundException.java=1713942355536
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\model\\Client.java=1713942355552
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\controller\\ClientController.java=1713942355536
+C\:\\Coding\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\controller\\WebController.java=1713946942085

@@ -8,6 +8,8 @@ DocAssist,hu.nye.docassist.request,ClientRequest,35,45,0,0,3,8,9,8,9,8
 DocAssist,hu.nye.docassist.request,ClientRequest.ClientRequestBuilder,72,0,0,0,1,0,10,0,10,0
 DocAssist,hu.nye.docassist.controller,ClientController,110,0,0,0,29,0,8,0,8,0
 DocAssist,hu.nye.docassist.controller,ExceptionHandlerController,4,0,0,0,2,0,2,0,2,0
+DocAssist,hu.nye.docassist.controller,WebController,54,0,0,0,16,0,5,0,5,0
+DocAssist,hu.nye.docassist.controller,FaviconController,20,0,0,0,4,0,2,0,2,0
 DocAssist,hu.nye.docassist,Main,8,0,0,0,3,0,2,0,2,0
-DocAssist,hu.nye.docassist.entity,ClientEntity,66,68,0,0,16,16,9,12,9,12
+DocAssist,hu.nye.docassist.entity,ClientEntity,66,68,0,0,16,19,9,12,9,12
 DocAssist,hu.nye.docassist.entity,ClientEntity.ClientEntityBuilder,81,0,0,0,1,0,11,0,11,0

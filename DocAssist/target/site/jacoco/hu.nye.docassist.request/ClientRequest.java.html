@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClientRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">DocAssist</a> &gt; <a href="index.source.html" class="el_package">hu.nye.docassist.request</a> &gt; <span class="el_source">ClientRequest.java</span></div><h1>ClientRequest.java</h1><pre class="source lang-java linenums">package hu.nye.docassist.request;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClientRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">DocAssist</a> &gt; <a href="index.source.html" class="el_package">hu.nye.docassist.request</a> &gt; <span class="el_source">ClientRequest.java</span></div><h1>ClientRequest.java</h1><pre class="source lang-java linenums">package hu.nye.docassist.request;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -18,19 +18,48 @@ import java.time.LocalDate;
 public class ClientRequest {
 
     @NotEmpty
-<span class="fc" id="L21">    private String firstName;</span>
+    private String firstName;
     @NotEmpty
-<span class="fc" id="L23">    private String lastName;</span>
+    private String lastName;
     @PositiveOrZero
-<span class="fc" id="L25">    private Integer age;</span>
+    private Integer age;
     @NotEmpty
-<span class="fc" id="L27">    private String disease;</span>
+    private String disease;
     @Email
-<span class="fc" id="L29">    private String email;</span>
-    @Pattern(regexp = &quot;^(\\+\\d{1,2}[- ]?)?\\d{10}$&quot;, message = &quot;Invalid phone number&quot;)
-<span class="fc" id="L31">    private String phoneNumber;</span>
+    private String email;
+    @Pattern(regexp = &quot;^\\+(36)(30|1|70|20)\\d{7}$&quot;, message = &quot;Invalid phone number&quot;)
+    private String phoneNumber;
 
     @JsonFormat(pattern = &quot;yyyy.MM.dd&quot;)
-<span class="fc" id="L34">    private LocalDate registrationDate;</span>
+    private LocalDate registrationDate;
+
+
+    public String getFirstName() {
+<span class="fc" id="L38">        return firstName;</span>
+    }
+
+    public String getLastName() {
+<span class="fc" id="L42">        return lastName;</span>
+    }
+
+    public Integer getAge() {
+<span class="fc" id="L46">        return age;</span>
+    }
+
+    public String getDisease() {
+<span class="fc" id="L50">        return disease;</span>
+    }
+
+    public String getEmail() {
+<span class="fc" id="L54">        return email;</span>
+    }
+
+    public String getPhoneNumber() {
+<span class="fc" id="L58">        return phoneNumber;</span>
+    }
+
+    public LocalDate getRegistrationDate() {
+<span class="fc" id="L62">        return registrationDate;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

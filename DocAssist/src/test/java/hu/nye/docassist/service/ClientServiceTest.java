@@ -31,7 +31,7 @@ public class ClientServiceTest {
     @Test
     public void testSaveClient() {
         ClientRequest request = new ClientRequest("John", "Doe", 30, "Cough", "john.doe@example.com", "+36-2345678", LocalDate.now());
-        ClientEntity expectedClient = new ClientEntity(1L, "John", "Doe", 30, "Cough", "john.doe@example.com", "+36-2345678", LocalDate.now());
+        ClientEntity expectedClient = new ClientEntity(Doe, "John", "30", "john.doe@example.com", "+36-2345678", LocalDate.now());
 
         when(clientRepository.save(any(ClientEntity.class))).thenReturn(expectedClient);
 

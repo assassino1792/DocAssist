@@ -8,3 +8,5 @@ import java.util.List;
 public interface ClientRepository extends JpaRepository<ClientEntity, Long> {
     List<ClientEntity> findAllByAge(int age);
 }
+
+

@@ -48,7 +48,7 @@ public class ClientEntity {
         return registrationDate;
     }
 
-    @Pattern(regexp = "^\\+(36)(30|1|70|20)\\d{7}$", message = "Invalid phone number")
+    @Pattern(regexp = "^\\+(36)(30|70|20)\\d{7}$", message = "Invalid phone number")
     private String phonenumber;
     @NotEmpty
     private String disease;
