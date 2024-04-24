@@ -6,8 +6,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.TransactionSystemException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,5 +45,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleException(Exception ex) {
         logger.error("Internal server error: ", ex);
         return new ResponseEntity<>("Internal server error occurred.", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public String handleValidationExceptions(MethodArgumentNotValidException ex, RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("errorMessage", "Validation error: " + ex.getBindingResult().toString());
+        return "redirect:/registration";
     }
 }

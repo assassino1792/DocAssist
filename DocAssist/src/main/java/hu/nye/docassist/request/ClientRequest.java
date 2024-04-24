@@ -24,7 +24,7 @@ public class ClientRequest {
     private String lastName;
     @PositiveOrZero
     private Integer age;
-    //@Pattern(regexp = "^\\+(36)(30|1|70|20)\\d{7}$", message = "Invalid phone number")
+    @Pattern(regexp = "^\\+(36)(30|1|70|20)\\d{7}$", message = "Invalid phone number")
     private String phoneNumber;
     @Email
     private String email;
