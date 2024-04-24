@@ -8,7 +8,7 @@
     <title>DocAssist WebApp</title>
         <style>
         .navbar-custom {
-            background-color: #f0f0f0; /* Szürkés háttér */
+            background-color: #8fd3fe;
         }
     </style>
 </head>
@@ -20,6 +20,8 @@
 </nav>
 <div class="container mt-5">
     <h1 class="mb-3">Patient Registration</h1>
+
+
     <form action="#" th:action="@{/registration/new}" th:object="${client}" method="post" class="needs-validation" novalidate>
         <div class="mb-3">
             <label for="firstName" class="form-label">First Name:</label>
@@ -49,14 +51,17 @@
             <label for="registrationDate" class="form-label">Registration Date:</label>
             <input type="date" class="form-control" th:field="*{registrationDate}" id="registrationDate" required>
         </div>
+        <div class="d-grid gap-2">
         <button type="submit" class="btn btn-primary">Submit</button>
-
+        </div>
     </form>
 </div>
 
 <!-- Gomb az adatok listázásához -->
 <div class="container mt-3">
+    <div class="d-grid gap-2">
     <a href="/registration/list" class="btn btn-info">View All Registrations</a>
+    </div>
 </div>
 
 

@@ -10,6 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.ui.Model;
+
+import java.time.LocalDate;
+
 
 @Controller
 @RequestMapping("/registration/update")
@@ -19,6 +23,18 @@ public class WebUpdateController {
     private IClientService clientService;
 
     Logger logger = LoggerFactory.getLogger(WebUpdateController.class);
+
+    @GetMapping("/edit/{id}")
+    public String showUpdateForm(@PathVariable("id") long id, Model model) {
+        try {
+            ClientEntity client = clientService.getClientById(id);
+            model.addAttribute("client", client);
+            return "update";
+        } catch (ClientNotFoundException e) {
+            model.addAttribute("error", "Client not found with ID: " + id);
+            return "error-page";
+        }
+    }
 
     @PostMapping("/{id}")
     public String updateClient(@PathVariable("id") long id, @ModelAttribute ClientEntity clientData, RedirectAttributes redirectAttributes) {
@@ -35,15 +51,16 @@ public class WebUpdateController {
             return "redirect:/registration/list";
         }
     }
+
     private ClientRequest convertToClientRequest(ClientEntity clientEntity) {
-        return new ClientRequest(
-                clientEntity.getFirstName(),
-                clientEntity.getLastName(),
-                clientEntity.getAge(),
-                clientEntity.getEmail(),
-                clientEntity.getPhonenumber(),
-                clientEntity.getProblem(),
-                clientEntity.getRegistrationDate()
-        );
+        return ClientRequest.builder()
+                .firstName(clientEntity.getFirstName())
+                .lastName(clientEntity.getLastName())
+                .age(clientEntity.getAge())
+                .problem(clientEntity.getProblem())
+                .email(clientEntity.getEmail())
+                .phoneNumber(clientEntity.getPhonenumber())
+                .registrationDate(LocalDate.now())
+                .build();
     }
 }
