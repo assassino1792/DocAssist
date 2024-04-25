@@ -38,10 +38,10 @@
             </div>
         </div>
         <div class="mb-3">
-            <label for="age" class="form-label">Age:</label>
-            <input type="number" class="form-control" th:field="*{age}" id="age" required>
+            <label for="age" class="form-label">How old are you?</label>
+            <input type="number" class="form-control" th:field="*{age}" id="age" required max="120">
             <div class="invalid-feedback">
-                How old are you?
+                 Age must be less than or equal to 120.
             </div>
         </div>
         <div class="mb-3">
@@ -60,7 +60,7 @@
          </div>
         <div class="mb-3">
             <label for="problem" class="form-label">How can we help you?</label>
-            <input type="text" class="form-control" th:field="*{problem}" id="problem" required>
+            <input type="text" class="form-control" th:field="*{problem}" id="problem" required max="120">
             <div class="invalid-feedback">
                 Please tell us how can we help you?
             </div>
