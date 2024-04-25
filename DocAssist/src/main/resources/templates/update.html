@@ -26,14 +26,23 @@
          <div class="mb-3">
             <label for="firstName" class="form-label">First Name:</label>
             <input type="text" class="form-control" th:field="*{firstName}" id="firstName" required>
+             <div class="invalid-feedback">
+                 Please add your first name.
+             </div>
         </div>
         <div class="mb-3">
             <label for="lastName" class="form-label">Last Name:</label>
             <input type="text" class="form-control" th:field="*{lastName}" id="lastName" required>
+            <div class="invalid-feedback">
+                Please add your last name.
+            </div>
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Age:</label>
             <input type="number" class="form-control" th:field="*{age}" id="age" required>
+            <div class="invalid-feedback">
+                How old are you?
+            </div>
         </div>
          <div class="mb-3">
              <label for="email" class="form-label">Email:</label>
@@ -44,11 +53,17 @@
          </div>
          <div class="mb-3">
              <label for="phonenumber" class="form-label">Phone Number:</label>
-             <input type="tel" class="form-control" th:field="*{phonenumber}" id="phonenumber" name="phonenumber" required pattern="^\+(36)(30|70|20)\d{7}$">
+             <input type="tel" class="form-control" th:field="*{phonenumber}" id="phonenumber" name="phonenumber" pattern="^\+36(30|70|20)\d{7}$">
+             <div class="invalid-feedback">
+                 Please add your valid phone number.
+             </div>
          </div>
         <div class="mb-3">
             <label for="problem" class="form-label">Problem:</label>
             <input type="text" class="form-control" th:field="*{problem}" id="problem" required>
+            <div class="invalid-feedback">
+                Please add the real problem?
+            </div>
         </div>
          <div class="mb-3" th:if="${client.registrationDate != null}">
              <label for="registrationDate" class="form-label">Registration Date:</label>

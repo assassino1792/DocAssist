@@ -44,7 +44,9 @@ public class ClientEntity {
     @NotEmpty
     private String problem;
     @Email
+    @NotEmpty
     private String email;
+    @NotEmpty
     @Column
     @JsonFormat(pattern = "yyyy.MM.dd")
     private LocalDate registrationDate;

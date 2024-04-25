@@ -22,16 +22,18 @@ public class ClientRequest {
     private String firstName;
     @NotEmpty
     private String lastName;
+    @NotEmpty
     @PositiveOrZero
     private Integer age;
+    @NotEmpty
     @Pattern(regexp = "^\\+(36)(30|1|70|20)\\d{7}$", message = "Invalid phone number")
     private String phoneNumber;
+    @NotEmpty
     @Email
     private String email;
-
     @NotEmpty
     private String problem;
-
+    @NotEmpty
     @JsonFormat(pattern = "yyyy.MM.dd")
     private LocalDate registrationDate;
 
