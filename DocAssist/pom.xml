@@ -176,7 +176,6 @@
             <id>github</id>
             <name>GitHub Apache Maven Snapshot Packages</name>
             <url>https://maven.pkg.github.com/assassino1792/DocAssist</url>
-            <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
 
