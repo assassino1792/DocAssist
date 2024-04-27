@@ -170,11 +170,12 @@
     </build>
 
     <distributionManagement>
-        <repository>
+        <snapshotRepository>
             <id>github</id>
-            <name>GitHub Apache Maven Packages</name>
+            <name>GitHub Apache Maven Snapshot Packages</name>
             <url>https://maven.pkg.github.com/assassino1792/DocAssist</url>
-        </repository>
+            <uniqueVersion>true</uniqueVersion>
+        </snapshotRepository>
     </distributionManagement>
 
 
