@@ -33,7 +33,7 @@ public class ClientService implements IClientService {
     public ClientEntity getClientById(Long id) throws ClientNotFoundException {
         return clientRepository.findById(id).orElseThrow(() -> new ClientNotFoundException("Client not found with id: " + id));
     }
-    
+
 
     @Override
     public ClientEntity updateClient(Long id, ClientRequest clientRequest) throws ClientNotFoundException {
