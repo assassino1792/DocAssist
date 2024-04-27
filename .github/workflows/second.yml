@@ -26,6 +26,11 @@ jobs:
           server-id: github
           settings-path: ${{ github.workspace }}/settings.xml  # Adjusted to refer to settings-path
 
+      - name: Remove or Rename existing settings.xml directory
+        run: |
+          rm -rf ${{ github.workspace }}/settings.xml  # Törlés
+          # mv ${{ github.workspace }}/settings.xml ${{ github.workspace }}/settings_xml_backup  # Átnevezés, ha meg akarod tartani
+
 
       - name: List Workspace Directory
         run: |
