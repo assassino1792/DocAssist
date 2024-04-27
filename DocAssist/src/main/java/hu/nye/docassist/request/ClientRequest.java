@@ -65,5 +65,4 @@ public class ClientRequest {
     public LocalDate getRegistrationDate() {
         return registrationDate;
     }
-    
 }
