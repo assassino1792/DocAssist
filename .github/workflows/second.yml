@@ -57,15 +57,10 @@ jobs:
       - name: Build with Maven
         run: mvn -B clean install --file DocAssist/pom.xml -s ${{ github.workspace }}/settings.xml
 
-      - name: Deploy with Maven
-        run: mvn -B deploy --file DocAssist/pom.xml -s ${{ github.workspace }}/settings.xml
-
-      - name: List files
-        run: ls -la
-        working-directory: DocAssist
-
       - name: Deploy to GitHub Packages
-        run: mvn deploy --file pom.xml
+        run: mvn -B deploy --file DocAssist/pom.xml -s ${{ github.workspace }}/settings.xml
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+     
 
