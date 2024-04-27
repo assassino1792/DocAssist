@@ -26,6 +26,5 @@ jobs:
           mvn -B versions:set -DnewVersion="${VERSION}" --file DocAssist/pom.xml
           mvn -B deploy --file DocAssist/pom.xml
         env:
-          USERNAME: assassino1792  # GitHub felhasználónév
-          PASSWORD: Cisco.1gota20
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
