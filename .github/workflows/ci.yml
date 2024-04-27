@@ -21,10 +21,12 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build and publish with Maven
+      - name: Set execute permission for the script
+        run: chmod +x ./build/create-semver.sh
+      - name: Generate version and deploy
         run: |
-          VERSION=$(./build/create-semver.sh pom.xml "${{github.run_number}}-$GITHUB_SHA")
-          mvn -B versions:set -DnewVersion="${VERSION}" --file pom.xml
-          mvn -B deploy --file pom.xml
+          VERSION=$(./build/create-semver.sh DocAssist/pom.xml "4")
+          mvn -B versions:set -DnewVersion="${VERSION}" --file DocAssist/pom.xml
+          mvn -B deploy --file DocAssist/pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
