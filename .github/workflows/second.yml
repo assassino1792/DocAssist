@@ -50,13 +50,13 @@ jobs:
                 <password>${{ secrets.GITHUB_TOKEN }}</password>
               </server>
             </servers>
-            <distributionManagement>
-              <snapshotRepository>
+            <repositories>
+              <repository>
                 <id>github</id>
                 <name>GitHub Apache Maven Snapshot Packages</name>
                 <url>https://maven.pkg.github.com/assassino1792/DocAssist</url>
-              </snapshotRepository>
-            </distributionManagement>
+              </repository>
+            </repositories>
           </settings>
           EOF
       
