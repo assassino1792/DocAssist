@@ -20,10 +20,9 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-
-      - name: Set execute permission for the script
+      - name: Make script executable
         run: chmod +x ./build/create-semver.sh
-      - name: Generate version and deploy
+      - name: Build and publish with Maven
         run: |
           VERSION=$(./build/create-semver.sh DocAssist/pom.xml "4")
           mvn -B versions:set -DnewVersion="${VERSION}" --file DocAssist/pom.xml
