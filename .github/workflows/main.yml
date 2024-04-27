@@ -24,7 +24,7 @@ jobs:
         run: |
           VERSION=$(./build/create-semver.sh DocAssist/pom.xml "4")
           mvn -B versions:set -DnewVersion="${VERSION}" --file DocAssist/pom.xml
-          mvn -B deploy --file DocAssist/pom.xml
+          mvn -B deploy -e -X --file DocAssist/pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
