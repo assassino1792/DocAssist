@@ -38,27 +38,28 @@ jobs:
 
       - name: Generate settings.xml
         run: |
-            cat << EOF > ${{ github.workspace }}/settings.xml
-            <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                                          http://maven.apache.org/xsd/settings-1.0.0.xsd">
-              <servers>
-                <server>
-                  <id>github</id>
-                  <username>${{ github.actor }}</username>
-                  <password>${{ secrets.GITHUB_TOKEN }}</password>
-                </server>
-              </servers>
-          <distributionManagement>
-          <snapshotRepository>
-            <id>github</id>
-              <name>GitHub Apache Maven Snapshot Packages</name>
-              <url>https://maven.pkg.github.com/assassino1792/DocAssist</url>
+          cat << 'EOF' > ${{ github.workspace }}/settings.xml
+          <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                                        http://maven.apache.org/xsd/settings-1.0.0.xsd">
+            <servers>
+              <server>
+                <id>github</id>
+                <username>${{ github.actor }}</username>
+                <password>${{ secrets.GITHUB_TOKEN }}</password>
+              </server>
+            </servers>
+            <distributionManagement>
+              <snapshotRepository>
+                <id>github</id>
+                <name>GitHub Apache Maven Snapshot Packages</name>
+                <url>https://maven.pkg.github.com/assassino1792/DocAssist</url>
               </snapshotRepository>
             </distributionManagement>
-            </settings>
-            EOF
+          </settings>
+          EOF
+      
 
       - name: Build with Maven
         run: mvn -B clean install --file DocAssist/pom.xml -s ${{ github.workspace }}/settings.xml
