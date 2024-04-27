@@ -57,7 +57,7 @@ jobs:
         run: mvn -B clean install --file DocAssist/pom.xml -s ${{ github.workspace }}/settings.xml
 
       - name: Deploy to GitHub Packages
-        run: mvn -B deploy -X --file DocAssist/pom.xml -s ${{ github.workspace }}/settings.xml
+        run: mvn -B --file DocAssist/pom.xml -s ${{ github.workspace }}/settings.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
