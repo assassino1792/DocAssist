@@ -25,6 +25,19 @@ jobs:
           VERSION=$(./build/create-semver.sh DocAssist/pom.xml "4")
           mvn -B versions:set -DnewVersion="${VERSION}" --file DocAssist/pom.xml
           mvn -B deploy -e -X --file DocAssist/pom.xml
+      - name: Setup Maven Settings
+        run: |
+          echo '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+            <servers>
+              <server>
+                <id>github</id>
+                <username>${{ github.actor }}</username>
+                <password>${{ secrets.GITHUB_TOKEN }}</password>
+              </server>
+            </servers>
+          </settings>' > ~/.m2/settings.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
