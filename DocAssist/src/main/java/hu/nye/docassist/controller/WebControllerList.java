@@ -40,6 +40,8 @@ public class WebControllerList {
     }
 
 
+
+
     @GetMapping("/delete/{id}")
     public String deleteClient(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
         try {
