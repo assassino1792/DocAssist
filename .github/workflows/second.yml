@@ -32,10 +32,7 @@ jobs:
           rm -rf ${{ github.workspace }}/settings.xml  # Törlés
           # mv ${{ github.workspace }}/settings.xml ${{ github.workspace }}/settings_xml_backup 
 
-      - name: List Workspace Directory
-        run: |
-          echo "The workspace directory is ${{ github.workspace }}"
-          ls -la ${{ github.workspace }}
+     
 
       - name: Generate settings.xml
         run: |
@@ -80,7 +77,7 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u "${{ github.actor }}" --password-stdin
 
       - name: Push Docker image to GitHub Packages
-        run: docker push assassino1792/docker.pkg.github.com/docassist:latest .
+        run: docker push assassino1792/docker.pkg.github.com/docassist:latest
 
 
 
