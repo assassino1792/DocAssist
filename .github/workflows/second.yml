@@ -74,7 +74,7 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u "${{ github.actor }}" --password-stdin
 
       - name: Push Docker image to GitHub Packages
-        run:  docker build -t docker.pkg.github.com/assassino1792/docassist/docassist:latest .
+        run:  docker push docker.pkg.github.com/assassino1792/docassist/docassist:latest .
 
 
       - name: Deploy to GitHub Packages
