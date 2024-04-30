@@ -72,6 +72,7 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t docker.pkg.github.com/assassino1792/docassist:latest .
+        working-directory: ${{ github.workspace }}/DocAssist
 
 
 
