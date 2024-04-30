@@ -66,15 +66,15 @@ jobs:
         run: mvn -B clean install --file DocAssist/pom.xml -s ${{ github.workspace }}/settings.xml
 
       - name: Build Docker image
-        run: docker push docker.pkg.github.com/assassino1792/docassist/docassist:latest
-             
+        run: docker build -t docker.pkg.github.com/assassino1792/docassist/docassist:latest .
+
 
 
       - name: Log in to GitHub Packages Docker registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u "${{ github.actor }}" --password-stdin
 
       - name: Push Docker image to GitHub Packages
-        run: docker push docker.pkg.github.com/assassino1792/docassist/docassist:latest
+        run:  docker build -t docker.pkg.github.com/assassino1792/docassist/docassist:latest .
 
 
       - name: Deploy to GitHub Packages
