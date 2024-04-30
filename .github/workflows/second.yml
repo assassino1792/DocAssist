@@ -81,6 +81,7 @@ jobs:
 
       - name: Push Docker image to GitHub Packages
         run: docker build -t docker.pkg.github.com/assassino1792/docassist:latest .
+        working-directory: ${{ github.workspace }}/DocAssist
 
 
       - name: Deploy to GitHub Packages
