@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       packages: write
 
     steps:
@@ -24,12 +24,12 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           server-id: github
-          settings-path: ${{ github.workspace }}/settings.xml  # Adjusted to refer to settings-path
+          settings-path: ${{ github.workspace }}/settings.xml
 
       - name: Remove or Rename existing settings.xml directory
         run: |
           rm -rf ${{ github.workspace }}/settings.xml  # Törlés
-          # mv ${{ github.workspace }}/settings.xml ${{ github.workspace }}/settings_xml_backup  # Átnevezés, ha meg akarod tartani
+          # mv ${{ github.workspace }}/settings.xml ${{ github.workspace }}/settings_xml_backup 
 
       - name: List Workspace Directory
         run: |
@@ -63,6 +63,16 @@ jobs:
 
       - name: Build with Maven
         run: mvn -B clean install --file DocAssist/pom.xml -s ${{ github.workspace }}/settings.xml
+
+      - name: Build Docker image
+        run: docker build -t docker.pkg.github.com/assassino1792/docassist/docassist:latest .
+
+      - name: Log in to GitHub Packages Docker registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u "${{ github.actor }}" --password-stdin
+
+      - name: Push Docker image to GitHub Packages
+        run: docker push docker.pkg.github.com/assassino1792/docassist/docassist:latest
+
 
       - name: Deploy to GitHub Packages
         run: mvn -B deploy --file DocAssist/pom.xml -s ${{ github.workspace }}/settings.xml
