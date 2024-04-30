@@ -40,15 +40,17 @@ import jakarta.validation.constraints.Email;
     }
 
 
+
+
     @GetMapping(&quot;/delete/{id}&quot;)
     public String deleteClient(@PathVariable(&quot;id&quot;) long id, RedirectAttributes redirectAttributes) {
         try {
-<span class="nc" id="L46">            clientService.deleteClientById(id);</span>
-<span class="nc" id="L47">            redirectAttributes.addFlashAttribute(&quot;success&quot;, &quot;Client deleted successfully&quot;);</span>
-<span class="nc" id="L48">        } catch (ClientNotFoundException e) {</span>
-<span class="nc" id="L49">            redirectAttributes.addFlashAttribute(&quot;error&quot;, &quot;No client found with ID: &quot; + id);</span>
-<span class="nc" id="L50">        }</span>
-<span class="nc" id="L51">        return &quot;redirect:/registration/list&quot;;</span>
+<span class="nc" id="L48">            clientService.deleteClientById(id);</span>
+<span class="nc" id="L49">            redirectAttributes.addFlashAttribute(&quot;success&quot;, &quot;Client deleted successfully&quot;);</span>
+<span class="nc" id="L50">        } catch (ClientNotFoundException e) {</span>
+<span class="nc" id="L51">            redirectAttributes.addFlashAttribute(&quot;error&quot;, &quot;No client found with ID: &quot; + id);</span>
+<span class="nc" id="L52">        }</span>
+<span class="nc" id="L53">        return &quot;redirect:/registration/list&quot;;</span>
     }
 
 

@@ -1,15 +1,16 @@
-#Sat Apr 27 14:03:22 CEST 2024
+#Wed May 01 00:30:33 CEST 2024
 C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\model\\Client.java=1713208542519
 configuration*?=677019684B101B701E33FCBB362632C545BABDA0
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\request\\ClientRequest.java=1714057535464
+C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\request\\ClientRequest.java=1714220680733
 C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\controller\\ExceptionHandlerController.java=1713095684986
 C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\controller\\WebUpdateController.java=1713990123005
-C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\controller\\WebControllerList.java=1713986727996
+C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\controller\\WebControllerList.java=1714513984360
 C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\resources\\application.properties=1713984459625
 C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\repository\\ClientRepository.java=1713972282849
 C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\Main.java=1713077195058
 C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\service\\IClientService.java=1713972282851
 C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\entity\\ClientEntity.java=1714057535461
+C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\MainClass.java=1714516191225
 C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\controller\\WebController.java=1713992526784
 C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\configuration\\ClientServiceConfiguration.java=1713077195058
 C\:\\Coding\\GitRepository\\DocAssist\\DocAssist\\src\\main\\java\\hu\\nye\\docassist\\controller\\FaviconController.java=1713981538574
