@@ -80,7 +80,7 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u "${{ github.actor }}" --password-stdin
 
       - name: Push Docker image to GitHub Packages
-        run: docker push docker.pkg.github.com/assassino1792/docassist:latest
+        run: docker push assassino1792/docker.pkg.github.com/docassist:latest
         working-directory: ${{ github.workspace }}/DocAssist
 
 
