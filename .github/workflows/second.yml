@@ -31,8 +31,7 @@ jobs:
         run: |
           rm -rf ${{ github.workspace }}/settings.xml  # Törlés
           # mv ${{ github.workspace }}/settings.xml ${{ github.workspace }}/settings_xml_backup 
-
-     
+   
 
       - name: Generate settings.xml
         run: |
@@ -58,7 +57,6 @@ jobs:
           </settings>
           EOF
       
-
       - name: Build with Maven
         run: mvn -B clean install --file DocAssist/pom.xml -s ${{ github.workspace }}/settings.xml
 
