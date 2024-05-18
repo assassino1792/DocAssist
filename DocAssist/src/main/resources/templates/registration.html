@@ -40,7 +40,7 @@
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">How old are you?</label>
-            <input type="number" class="form-control" th:field="*{age}" id="age" required max="120">
+            <input type="number" class="form-control" th:field="*{age}" id="age" required min="0" max="120">
             <div class="invalid-feedback">
                  Age must be less than or equal to 120.
             </div>
